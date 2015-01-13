@@ -10,7 +10,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from project.settings import ADMIN_EMAIL
 
 # @periodic_task(run_every = timedelta(seconds = 60))
-@periodic_task(ignore_result=True, run_every=crontab(hour=4, minute=28))
+@periodic_task(ignore_result=True, run_every=crontab(hour=4, minute=31))
 def test():
 
     users = UserProfile.objects.all()
