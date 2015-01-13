@@ -1,0 +1,411 @@
+/*h2 {*/
+    /*font: normal 18px/18px Open Sans;*/
+    /*color: #1e74a5;*/
+    /*font-weight:600;*/
+    /*text-transform:uppercase;*/
+    /*font-family:'Open Sans', sans-serif;*/
+    /*letter-spacing:2px;*/
+/*}*/
+
+/*слайдер*/
+/*.my_slider .slide {*/
+    /*min-height: 450px;*/
+/*}*/
+/*.slider {*/
+    /*background-color:#e7f2f7;*/
+    /*padding: 40px 0 20px;*/
+    /*position: relative;*/
+    /*z-index: 3;*/
+/*}*/
+/*.slider::after {*/
+    /*background:url(../images/bg_slider_after.png) 0 0 repeat-x;*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height:5px;*/
+    /*content:"";*/
+    /*left:0;*/
+    /*right:0;*/
+    /*bottom:-5px;*/
+    /*z-index:4;*/
+/*}*/
+
+/*country*/
+/*.country_gallery img{*/
+    /*width: 50%;*/
+    /*float: left;*/
+    /*padding: 5%;*/
+/*}*/
+/*.destination_image img {*/
+    /*float: left;*/
+    /*width: 300px;*/
+    /*padding-right: 20px;*/
+    /*padding-bottom: 20px;*/
+/*}*/
+
+/*top_menu*/
+/*#top_menu {*/
+    /*background: #282828;*/
+/*}*/
+/*#top_menu .top_menu ul{*/
+    /*float: right;*/
+    /*margin-bottom: 0;*/
+/*}*/
+/*#top_menu ul li {*/
+    /*float: left;*/
+    /*list-style: none;*/
+    /*padding:22px 0 22px;*/
+/*}*/
+/*#top_menu .top_menu ul li a {*/
+    /*padding:26px 17px 22px;*/
+    /*text-decoration:none;*/
+    /*color:#fff;*/
+    /*position:relative;*/
+    /*text-transform: uppercase;*/
+/*}*/
+/*#top_menu .top_menu ul li a:hover{*/
+    /*color: #1e74a5;*/
+/*}*/
+
+/*article_menu*/
+/*.article_liks ul {*/
+    /*margin: 0;*/
+    /*padding: 5px ;*/
+/*}*/
+/*.article_liks ul li{*/
+    /*list-style: none;*/
+    /*padding: 3px 15px;*/
+    /*position: relative;*/
+/*}*/
+/*.article_liks ul li:hover{*/
+    /*background: #1e74a5;*/
+/*}*/
+/*.article_liks ul li a {*/
+    /*padding: 2px 0;*/
+    /*color: #000;*/
+    /*text-decoration: none;*/
+/*}*/
+/*.article_liks ul li:hover a {*/
+    /*color: #fff;*/
+/*}*/
+/*.article_liks ul li a::before {*/
+    /*display:block;*/
+    /*position:absolute;*/
+    /*left:5px;*/
+    /*top:10px;*/
+    /*width:3px;*/
+    /*height:5px;*/
+    /*content:"";*/
+    /*background:url(../images/categories_before.png) 0 0 no-repeat;*/
+/*}*/
+/*.article_liks ul li a::after{*/
+    /*display:block;*/
+    /*position:absolute;*/
+    /*left:0;*/
+    /*right:100%;*/
+    /*top:0;*/
+    /*bottom:0;*/
+    /*background:#1e74a5;*/
+    /*content:"";*/
+    /*-webkit-transition:0.3s all;*/
+    /*-moz-transition:0.3s all;*/
+    /*-o-transition:0.3s all;*/
+    /*transition:0.3s all;*/
+    /*z-index:-1;*/
+/*}*/
+/*.article_liks ul li a:hover::before{*/
+    /*background-position:0 bottom;*/
+/*}*/
+/*.article_liks ul li a:hover::after {*/
+    /*right: 0;*/
+/*}*/
+
+/*header*/
+/*.header {*/
+    /*padding: 60px 0 20px;*/
+/*}*/
+
+/*menu*/
+/*#menu {*/
+    /*margin:0;*/
+    /*padding:0;*/
+    /*list-style:none;*/
+    /*border-top: 1px solid #e4e4e4;*/
+    /*height: 56px;*/
+    /*position: relative;*/
+/*}*/
+/*#menu::after {*/
+    /*background:url(../images/bg_li.png) 0 0 repeat-x;*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height:65px;*/
+    /*content:"";*/
+    /*left:0;*/
+    /*right:0;*/
+    /*bottom:-10px;*/
+    /*z-index:10;*/
+/*}*/
+/*#menu ul {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
+
+    /*#menu ul li {*/
+        /*float:left;*/
+        /*display:block;*/
+        /*width:100px;*/
+        /*background:#ccc;*/
+        /*position:relative;*/
+        /*z-index:500;*/
+        /*margin:0 0px;*/
+        /*width: 220px;*/
+        /*margin-right: 0px;*/
+        /*padding:16px 0px 14px;*/
+    /*}*/
+
+    /*#menu ul li:hover {*/
+        /*background: #1e74a5;*/
+        /*color: #fff;*/
+        /*margin:0 0px;*/
+    /*}*/
+    /*#menu .menu>ul>li:hover>a::after {*/
+        /*background:url(../images/bg_li_hover.png) 0 0 repeat-x;*/
+    /*}*/
+    /*#menu .menu>ul>li>a::after {*/
+        /*background:url(../images/bg_li.png) 0 0 repeat-x;*/
+        /*position:absolute;*/
+        /*width:100%;*/
+        /*height:60px;*/
+        /*content:"";*/
+        /*left:0;*/
+        /*right:0;*/
+        /*bottom:-10px;*/
+        /*z-index:-1;*/
+    /*}*/
+    /*#menu ul li:hover a {*/
+        /*color: #fff;*/
+    /*}*/
+
+    /* this is the parent menu */
+    /*#menu ul li a {*/
+        /*display:block;*/
+        /*padding:16px 54px 14px;*/
+        /*font-weight:700;*/
+        /*height:23px;*/
+        /*text-decoration:none;*/
+        /*color:#fff;*/
+        /*text-align: center;*/
+        /*color:#333;*/
+        /*text-transform: uppercase;*/
+    /*}*/
+    /*#menu ul li a:hover {*/
+        /*color:#fff;*/
+        /*background: #1e74a5;*/
+        /*text-decoration: none;*/
+    /*}*/
+    /*#menu ul a.selected {*/
+        /*color:#f00;*/
+    /*}*/
+        /*#menu ul ul {*/
+            /*background: #282828;*/
+            /*position:absolute;*/
+            /*left:0;*/
+            /*display:none;*/
+            /*margin:0 0 0 0px;*/
+            /*padding:0;*/
+            /*list-style:none;*/
+            /*width: 220px;*/
+            /*text-align: left;*/
+        /*}*/
+
+        /*#menu ul ul li {*/
+            /*float:none;*/
+            /*background: #282828;*/
+            /*margin: 0;*/
+        /*}*/
+
+        /*#menu ul ul a {*/
+            /*display:block;*/
+            /*padding: 10px 20px;*/
+            /*background: #282828;*/
+            /*color:#fff;*/
+        /*}*/
+
+        /*#menu ul ul a:hover {*/
+            /*background: #fff;*/
+            /*color: #000;*/
+            /*text-decoration: none;*/
+        /*}*/
+/* fix ie6 small issue */
+/* we should always avoid using hack like this */
+/* should put it into separate file : ) */
+/**html #menu ul ul {*/
+    /*margin:0 0 0 -2px;*/
+/*}*/
+
+/*main_content*/
+/*.main_content {*/
+    /*background-color: #dbe7ec;*/
+    /*padding: 20px 0 40px 0;*/
+    /*position: relative;*/
+    /*z-index: 2;*/
+/*}*/
+/*.main_content::after {*/
+    /*background:url(../images/footer_after.png) 0 0 repeat-x;*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height:5px;*/
+    /*content:"";*/
+    /*left:0;*/
+    /*right:0;*/
+    /*bottom:-5px;*/
+    /*z-index:0;*/
+/*}*/
+/*.main_content .title {*/
+    /*min-height: 40px;*/
+    /*font-size:14px;*/
+    /*line-height:18px;*/
+    /*padding:0;*/
+    /*font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;*/
+    /*font-style:normal;*/
+    /*font-weight:normal;*/
+    /*display:block;*/
+    /*letter-spacing:0;*/
+    /*margin:17px 16px 7px;*/
+    /*text-transform:uppercase;*/
+    /*color:#1e74a5;*/
+/*}*/
+/*.main_content .home_block {*/
+    /*background: #fff;*/
+    /*text-align: center;*/
+    /*padding: 20px 0;*/
+    /*position: relative;*/
+    /*min-height: 480px;*/
+/*}*/
+/*.main_content .home_block .home_block_content {*/
+    /*min-height: 160px;*/
+/*}*/
+/*.main_content .home_block::before {*/
+    /*background:url(../images/li_before.png) 0 bottom repeat-x;*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height:5px;*/
+    /*content:"";*/
+    /*left:0;*/
+    /*right:0;*/
+    /*top:-5px;*/
+    /*z-index:0;*/
+/*}*/
+/*.main_content .home_block::after {*/
+    /*background:url(../images/li_after.png) 0 bottom repeat-x;*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height:8px;*/
+    /*content:"";*/
+    /*left:0;*/
+    /*right:0;*/
+    /*bottom:-8px;*/
+    /*z-index:0;*/
+/*}*/
+/*.main_content .home_block img {*/
+    /*width: 240px;*/
+/*}*/
+/*.main_content .home_block_content {*/
+    /*text-align: left;*/
+/*}*/
+/*.main_content .home_block_content p {*/
+    /*padding:0 16px 12px 16px;*/
+    /*color:#b7b7b7;*/
+/*}*/
+/*.main_content .home_block a {*/
+    /*display: block;*/
+    /*margin: 20px;*/
+    /*padding: 10px;*/
+    /*background: #dae8ef;*/
+    /*color:#282828;*/
+    /*font-size:11px;*/
+    /*text-transform: uppercase;*/
+    /*position: relative;*/
+/*}*/
+/*.main_content .home_block a:hover {*/
+    /*text-decoration: none;*/
+    /*background: #1e74a5;*/
+    /*color: #fff;*/
+/*}*/
+/*.main_content .home_block a i {*/
+    /*padding: 10px 15px;*/
+    /*background: #cdd9df;*/
+    /*float: right;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*font-size: 15px;*/
+/*}*/
+/*.main_content .home_block a:hover i {*/
+    /*color: #000;*/
+/*}*/
+/*.main_content .country_item {*/
+    /*background: #fff;*/
+/*}*/
+
+/*footer*/
+/*.footer {*/
+    /*background-color: #cdd9df;*/
+    /*padding: 40px 0;*/
+    /*position: relative;*/
+    /*z-index: 1;*/
+/*}*/
+
+/*forms*/
+/*#contact_mini_form input{*/
+    /*width: 100%;*/
+    /*display: block;*/
+    /*margin-top: 5px;*/
+/*}*/
+/*#contact_form input{*/
+    /*width: 100%;*/
+    /*display: block;*/
+    /*margin-top: 5px;*/
+/*}*/
+/*.destination .destination_form {*/
+    /*width: 300px;*/
+    /*margin: 0 0 10px 10px;*/
+    /*float: right;*/
+/*}*/
+/*.destination_form {*/
+    /*text-align: center;*/
+    /*margin: 10px auto;*/
+    /*border:5px solid #fff;*/
+    /*background: #fff;*/
+    /*padding: 0 20px 20px 20px;*/
+    /*-webkit-box-shadow:0 0 5px rgba(0,0,0,0.2);*/
+    /*-moz-box-shadow:0 0 5px rgba(0,0,0,0.2);*/
+    /*box-shadow:0 0 5px rgba(0,0,0,0.2);*/
+/*}*/
+/*.destination_form #id_destination {*/
+    /*width: 100%;*/
+/*}*/
+/*.submit_button {*/
+    /*background:#1e74a5;*/
+    /*color: #fff;*/
+    /*text-transform: uppercase;*/
+    /*border: none;*/
+    /*padding: 6px;*/
+/*}*/
+/*.btn.more_button {*/
+    /*border-radius: 0;*/
+    /*padding: 8px 25px;*/
+    /*background: none;*/
+    /*display: block;*/
+    /*width: 100%;*/
+/*}*/
+/*.btn.more_button:hover {*/
+    /*color: #fff;*/
+/*}*/
+
+/*.destination_form p {*/
+    /*color: #ccc;*/
+/*}*/
+
+.btn {
+    padding: 2px 12px;
+}

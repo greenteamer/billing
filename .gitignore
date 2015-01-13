@@ -17,6 +17,7 @@ atlassian-ide-plugin.xml
 # Project
 settings_local.py
 static/*
+!static/theme/
 media/*
 logs/
 pids/
