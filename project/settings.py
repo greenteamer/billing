@@ -216,7 +216,7 @@ INSTALLED_APPS = (
     # 'sorl.thumbnail',
     'dajaxice',
     'dajax',
-    'captcha',
+    # 'captcha',
     'south',
     'sitetree',
     'flatblocks',
