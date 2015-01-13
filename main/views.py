@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
+# from project.settings import *
 
 """send mail"""
 from django.core.mail import send_mail, EmailMultiAlternatives
@@ -23,6 +24,8 @@ def home_view(request, template_name="main/home.html"):
     block_text = get_object_or_404(Block, is_main=True)
     # users = User.objects.all()
     # users_is_staff = User.objects.filter(is_staff=0)
+    # static = STATIC_ROOT
+    # path = MEDIA_ROOT
     if request.user.is_superuser:
         profiles = UserProfile.objects.all()
     else:
