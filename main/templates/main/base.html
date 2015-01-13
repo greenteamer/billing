@@ -1,0 +1,154 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% load sitetree %}
+{% load inplace_edit %}
+{#{% load catalog_tags %}#}
+{#{% load i18n %}#}
+{#{% load mptt_tags %}#}
+{#{% load thumbnail %}#}
+{#{% load dajaxice_templatetags %}#}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+{#        {% bootstrap_css %}#}
+        <link rel="stylesheet" type="text/css" href="{% static "libraries/bootstrap/css/bootstrap.min.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "theme/css/style.css" %}" />
+        <link rel="stylesheet" type="text/css" href="{% static "libraries/flexslider/css/flexslider.css" %}" />
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic,latin,cyrillic-ext" rel="stylesheet" type="text/css">
+
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+        <script src="{% static "libraries/jquery.min.js" %}"></script>
+        {% inplace_static %}
+{#        <script src="{% static "js/custom.js" %}"></script>#}
+
+{#        {% bootstrap_javascript %}#}
+        <script src="{% static "libraries/bootstrap/js/bootstrap.min.js" %}"></script>
+        {% bootstrap_messages %}
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#menu li').hover(
+                    function () {
+                        //show its submenu
+                        $('ul', this).stop().slideDown(100);
+
+                    },
+                    function () {
+                        //hide its submenu
+                        $('ul', this).stop().slideUp(100);
+                    }
+                );
+
+                $('.blok').hide();
+                $('#manage').click(function() {
+
+                    $(this).next().toggle();
+
+                    if($('.blok').css('display') == 'block')
+                        $('#manage').html('Скрыть');
+                    else
+                        $('#manage').html('Показать');
+                });
+
+            });
+            
+	    </script>
+
+    </head>
+    <body>
+{#        {% include "common/navigation.html" %}#}
+
+    <div id="top_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 top_menu">
+                    {% sitetree_menu from "topmenu" include "trunk" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Forward billing</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="menu">
+                        {% sitetree_menu from "maintree" include "trunk" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block slider %}
+    {% endblock %}
+
+    {% block main_content %}
+    {% endblock %}
+
+    {% block footer %}
+{#        <div class="footer">#}
+{#            <div class="container">#}
+{#                <div class="row">#}
+{##}
+{#                    <div class="col-xs-3">#}
+{#                        <span>© 2013 |  <a href="" title="Privacy Policy">Privacy Policy</a></span>#}
+{#                    </div>#}
+{#                    <div class="col-xs-2">#}
+{#                        {% sitetree_menu from "topmenu" include "trunk" %}#}
+{#                    </div>#}
+{#                    <div class="col-xs-2">#}
+{#                        {% sitetree_menu from "maintree" include "trunk" %}#}
+{#                    </div>#}
+{#                    <div class="col-xs-2">#}
+{#                        {% sitetree_menu from "article_links" include "trunk" %}#}
+{#                    </div>#}
+{##}
+{#                    <div class="col-xs-3">#}
+{#                        <address class="vcard">#}
+{#                            <div class="meta_format"><span class="tel"><span class="value"><a href="tel:1 800 123 1234">1 800 123 1234</a></span></span></div>#}
+{#                            <strong class="adr">#}
+{#                                <div class="meta_format"><span class="street-address">USA – Chicago,</span></div>#}
+{#                                <div class="meta_format"><span class="locality">901 Easte Street,</span></div>#}
+{#                                <div class="meta_format"> <span class="region">Wilmington, </span></div>#}
+{#                                <div class="meta_format"><span class="postal-code">CA 90744</span></div>#}
+{#                            </strong>#}
+{#                            <div class="meta_format link"><a class="email" href="mailto:mail@demolink.org"><span>e-mail:</span>mail@demolink.org</a></div>#}
+{#                        </address>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+
+    {% endblock %}
+
+{#        flex-slider#}
+    <script src="{% static "libraries/flexslider/js/jquery.flexslider-min.js" %}"></script>
+    <script src="{% static "libraries/flexslider/js/script.js" %}"></script>
+
+    </body>
+</html>

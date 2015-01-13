@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% load flatblock_tags %}
+{% load main_tags %}
+{% load sitetree %}
+
+{% block slider %}
+{#    <div class="slider">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-xs-9">#}
+{#                    {% slider request %}#}
+{#                </div>#}
+{#                <div class="col-xs-3">#}
+{#                    {% flatblock "slider_phone" %}#}
+{#                    {% flatblock "after_phone" %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}
+
+{% block main_content %}
+
+    <div class="main_content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+
+                        {% if country_list %}
+                            <div class="col-xs-9 country_item">
+                                {% for country in country_list %}
+                                    <div class="">
+                                        <h2>{{ country.name }}</h2>
+                                        <img src="{{ country.get_country_images.first.url }}" alt=""/>
+                                        <p>{{ country.body|truncatewords:100|safe }}</p>
+                                        <a href="{{ country.get_absolute_url }}">подробнее</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="col-xs-3">
+                            <h3>Отправить заявку</h3>
+                            {% contactFormMini_tag request %}
+                            <div class="article_liks">
+                                <h3>Полезные статьи</h3>
+                                {% sitetree_menu from "article_links" include "trunk" %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

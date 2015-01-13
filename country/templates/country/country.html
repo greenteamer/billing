@@ -1,0 +1,88 @@
+{% extends "main/base.html" %}
+{% load flatblock_tags %}
+{% load main_tags %}
+{% load sitetree %}
+{% load inplace_edit %}
+
+{% block slider %}
+{#    <div class="slider">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-xs-9">#}
+{#                    {% slider request %}#}
+{#                </div>#}
+{#                <div class="col-xs-3">#}
+{#                    {% flatblock "slider_phone" %}#}
+{#                    {% flatblock "after_phone" %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}
+
+{% block main_content %}
+
+    <div class="main_content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+
+                        {% if country %}
+                            <div class="col-xs-9 country_item">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="country_gallery">
+                                            {% for image in country.get_country_images %}
+                                                <img src="{{ image.url }}" alt=""/>
+{#                                                {% inplace_edit "image" adaptor="image_thumb", size="131x92" %}#}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <h2>{% inplace_edit "country.name" adaptor="text",  auto_height=1%}</h2>
+                                        {% inplace_edit "country.body|safe" adaptor="tiny"%}
+                                    </div>
+                                    {% for destination in country.get_country_destinations %}
+                                        <div class="col-xs-12">
+                                            <div class="destination">
+                                                <h3>{% inplace_edit "destination.name" adaptor="text",  auto_height=1%}</h3>
+                                                <div class="destination_image">{% inplace_edit "destination.image" adaptor="image_thumb", size="100x100" %}</div>
+                                                <div class="small_content">
+                                                    {% inplace_edit "destination.body|safe" adaptor="tiny" %}
+                                                </div>
+                                                <button type="button" class="btn more_button" data-toggle="collapse" data-target="#destination{{ destination.id }}">Подробнее</button>
+                                                <div id="destination{{ destination.id }}" class="collapse">
+                                                    <div class="destination_form">
+                                                        <h3>Отправить заявку</h3>
+                                                        <p>на направление: {{ destination.name }}</p>
+                                                        {% contactForm_tag request %}
+                                                    </div>
+                                                    {% inplace_edit "destination.body_all|safe" adaptor="tiny" %}
+                                                </div>
+                                            </div>
+                                        </div>                                
+                                    {% endfor %}                                                                        
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="col-xs-3">
+                            <div class="destination_form">
+                                <h3>Отправить заявку</h3>
+                                <p>на направление: {{ destination.name }}</p>
+                                {% contactForm_tag request %}
+                            </div>
+                            <div class="article_liks">
+                                <h3>Полезные статьи</h3>
+                                {% sitetree_menu from "article_links" include "trunk" %}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

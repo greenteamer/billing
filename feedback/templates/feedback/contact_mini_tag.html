@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load main_tags %}
+
+{% if form %}
+    <form action="." id="contact_mini_form" method="post">
+        {% csrf_token %}
+        {{ form.name }}
+        {{ form.phone }}
+        <input id="order_submit" class="btn btn-primary" value="Отправить" type="submit"/>
+    </form>
+    {{ error }}
+{% endif %}

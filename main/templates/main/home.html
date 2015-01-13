@@ -1,0 +1,122 @@
+{% extends "main/base.html" %}
+{% load flatblock_tags %}
+{% load main_tags %}
+{% load sitetree %}
+{% load inplace_edit %}
+
+{% block slider %}
+{#    <div class="slider">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-xs-9">#}
+{#                    {% slider request %}#}
+{#                </div>#}
+{#                <div class="col-xs-3">#}
+{#                    {% if block %}#}
+{#                        {% inplace_edit "block_text.text|safe" adaptor="tiny" %}#}
+{#                    {% else %}#}
+{#                        <p>нет блока</p>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}
+
+{% block main_content %}
+
+    {% if  profiles %}
+
+    <div class="main_content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+
+                        {% if front_pages %}
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12"><h2>Пользователи</h2></div>
+                                    <div class="col-xs-8" style="margin-bottom: 20px;">
+                                        <form method="post" action="." id="search">
+                                            {% csrf_token %}
+                                            <input type="text" name="name" value="" id="name" size="20" class="name" maxlength="20" />
+                                            <button class="btn btn-success" type="submit" name="search"><i class="icon-refresh icon-white"></i> <span>Поиск</span></button>
+                                            <button class="btn btn-success" type="submit" name="reset"><i class="icon-refresh icon-white"></i> <span>Сбросить</span></button>
+                                        </form>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <table class="table table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <td>Логин</td>
+                                                    <td>Имя</td>
+                                                    <td>Тариф</td>
+                                                    <td>Текущий баланс</td>
+                                                    <td>Изменить счет</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for profile in profiles %}
+                                                    <tr {% if profile.billing < 26 %}style="color: red"{% endif %}>
+                                                        <td>{{ profile.user.username }}</td>
+                                                        <td>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
+                                                        <td>{{ profile.tarif.sites_number }}  сайтов - {{ profile.tarif.price }} руб/мес</td>
+                                                        <td>{{ profile.billing }} руб.</td>
+                                                        <td>
+                                                            <form method="post" action=".">
+                                                                {% csrf_token %}
+                                                                <input type="text" name="money" value="" id="money" size="5" class="money" maxlength="5" />
+                                                                <input type="hidden" name="user" value="{{ profile.user.id }}" />
+                                                                <button class="btn btn-success" type="submit" name="add"><i class="icon-refresh icon-white"></i> <span>Добавить</span></button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+{#                                    {% for page in front_pages %}#}
+{#                                        <div class="col-xs-4">#}
+{#                                            <div class="home_block">#}
+        {#                                        <img src="{{ page.image.url }}" alt=""/>#}
+{#                                                {% inplace_edit "page.image" adaptor="image_thumb", size="131x92" %}#}
+{#                                                <div class="home_block_content">#}
+{#                                                    <div class="title">{% inplace_edit "page.name" adaptor="text",  auto_height=1, auto_width=1, edit_empty_value="Кликните для редактирования" %}</div>#}
+        {#                                            <p>{{ page.body|safe|truncatewords:20 }}</p>#}
+{#                                                    {% inplace_edit "page.body|safe|truncatewords:20" adaptor="tiny" %}#}
+{#                                                </div>#}
+{#                                                <a href="/{{ page.slug }}">подробнее <i class="fa fa-angle-right"></i></a>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    {% endfor %}#}
+                                </div>
+                            </div>
+                        {% endif %}
+
+{#                        <div class="col-xs-3">#}
+{#                            <div class="article_liks">#}
+{#                                <h2>Полезные статьи</h2>#}
+{#                                {% sitetree_menu from "article_links" include "trunk" %}#}
+{#                            </div>#}
+{#                        </div>#}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+        <div class="main_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>у вас нет прав на просмотр содержимого страницы</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
