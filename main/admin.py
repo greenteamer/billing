@@ -6,9 +6,16 @@ class PageAdmin(admin.ModelAdmin):
     model = Pages
     prepopulated_fields = {'slug':('name',)}
 
+class RegistratorAdmin(admin.StackedInline):
+    model = PropertyRegistrator
+
+class UserProfileAdmin(admin.ModelAdmin):
+    inlines = [RegistratorAdmin]
+
 
 admin.site.register(Pages, PageAdmin)
 admin.site.register(Block)
 admin.site.register(Order)
-admin.site.register(UserProfile)
+admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(Registrator)
 admin.site.register(Tarif)

@@ -28,6 +28,8 @@ def home_view(request, template_name="main/home.html"):
     # path = MEDIA_ROOT
     if request.user.is_superuser:
         profiles = UserProfile.objects.all()
+        for profile in profiles:
+            profile.registrators = PropertyRegistrator.objects.filter(profile=profile)
     else:
         profiles = None
     form = AddOrderForm()

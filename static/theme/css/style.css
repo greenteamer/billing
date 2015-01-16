@@ -409,3 +409,13 @@
 .btn {
     padding: 2px 12px;
 }
+.panel-heading {
+    padding: 5px;
+    background: none;
+    border:none;
+    text-align: center;
+}
+.panel-heading a {
+    font-weight: normal;
+    font-size: 12px;
+}

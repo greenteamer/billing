@@ -48,6 +48,13 @@ class Tarif(models.Model):
     def __unicode__(self):
         return '%s' % self.sites_number
 
+class Registrator(models.Model):
+    name = models.CharField(max_length=100, verbose_name=u'Название регистратора')
+    link = models.CharField(max_length=100, verbose_name=u'Ссылка на регистратор')
+
+    def __unicode__(self):
+        return self.name
+
 class UserProfile(BaseOrderInfo):
     """Профиль пользователя"""
     user = models.ForeignKey(User, unique=True)
@@ -68,6 +75,12 @@ class UserProfile(BaseOrderInfo):
         get_user.last_name = self.lastName
         get_user.save()
         return super(UserProfile, self).save(force_insert, force_update, using)
+
+class PropertyRegistrator(models.Model):
+    registrator = models.ForeignKey(Registrator, verbose_name=u'Выбрать регистратора')
+    login = models.CharField(max_length=100, verbose_name=u'Логин')
+    password = models.CharField(max_length=100, verbose_name=u'Пароль')
+    profile = models.ForeignKey(UserProfile, verbose_name=u'Выбрать профиль')
 
 
 class Order(models.Model):

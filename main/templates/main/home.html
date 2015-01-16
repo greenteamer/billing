@@ -53,6 +53,7 @@
                                                 <tr>
                                                     <td>Логин</td>
                                                     <td>Имя</td>
+                                                    <td>Телефон</td>
                                                     <td>Тариф</td>
                                                     <td>Текущий баланс</td>
                                                     <td>Изменить счет</td>
@@ -62,7 +63,29 @@
                                                 {% for profile in profiles %}
                                                     <tr {% if profile.billing < 26 %}style="color: red"{% endif %}>
                                                         <td>{{ profile.user.username }}</td>
-                                                        <td>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
+                                                        <td>{{ profile.user.first_name }} {{ profile.user.last_name }}
+                                                            <br/>
+                                                            <div class="panel-group" id="accordion">
+                                                                <div class="panel panel-default">
+                                                                    <div class="panel-heading">
+                                                                        <h4 class="panel-title">
+                                                                            <a class="accordion_button" data-toggle="collapse" data-parent="#accordion" href="#item{{ profile.id }}">Подробнее <i class="fa fa-caret-down"></i></a>
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div id="item{{ profile.id }}" class="panel-collapse collapse" style="height: auto;">
+                                                                        <div class="panel-body" style="text-align: left">
+                                                                            {% for registrator in profile.registrators %}
+                                                                                <p>
+                                                                                    <a href="{{ registrator.link }}">{{ registrator.registrator.name }}</a> :
+                                                                                    <br/><span>{{ registrator.login }}</span><br/><span>{{ registrator.password }}</span>
+                                                                                </p>
+                                                                            {% endfor %}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>{{ profile.phone }}</td>
                                                         <td>{{ profile.tarif.sites_number }}  сайтов - {{ profile.tarif.price }} руб/мес</td>
                                                         <td>{{ profile.billing }} руб.</td>
                                                         <td>
