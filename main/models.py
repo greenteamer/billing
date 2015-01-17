@@ -46,7 +46,7 @@ class Tarif(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name=u'Стоимость за месяц')
 
     def __unicode__(self):
-        return '%s' % self.sites_number
+        return str(self.sites_number) + ' - ' + str(self.price) + u' руб.'
 
 class Registrator(models.Model):
     name = models.CharField(max_length=100, verbose_name=u'Название регистратора')
