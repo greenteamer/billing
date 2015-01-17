@@ -62,7 +62,7 @@
                                             <tbody>
                                                 {% for profile in profiles %}
                                                     <tr {% if profile.billing < 26 %}style="color: red"{% endif %}>
-                                                        <td>{{ profile.user.username }}</td>
+                                                        <td>{{ profile.user.username }} <br/> <a href="http://{{ profile.site }}">{{ profile.site }}</a></td>
                                                         <td>{{ profile.user.first_name }} {{ profile.user.last_name }}
                                                             <br/>
                                                             <div class="panel-group" id="accordion">
