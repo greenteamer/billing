@@ -76,6 +76,7 @@
                                                                         <div class="panel-body" style="text-align: left">
                                                                             {% for registrator in profile.registrators %}
                                                                                 <p>
+                                                                                    <span>{{ registrator.domen }}</span><br/>
                                                                                     <a href="{{ registrator.link }}">{{ registrator.registrator.name }}</a> :
                                                                                     <br/><span>{{ registrator.login }}</span><br/><span>{{ registrator.password }}</span>
                                                                                 </p>

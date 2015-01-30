@@ -30,6 +30,7 @@ def home_view(request, template_name="main/home.html"):
         profiles = UserProfile.objects.all()
         for profile in profiles:
             profile.registrators = PropertyRegistrator.objects.filter(profile=profile)
+            # profile.registrators = PropertyRegistrator.objects.all()
     else:
         profiles = None
     form = AddOrderForm()
