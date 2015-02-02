@@ -52,6 +52,8 @@ def home_view(request, template_name="main/home.html"):
                 if request.user.is_superuser:
                     search_text = request.POST['name']
                     profiles = users(search_text)
+                    for profile in profiles:
+                        profile.registrators = PropertyRegistrator.objects.filter(profile=profile)
 
         if postdata.has_key('reset'):
             if request.user.is_superuser:
