@@ -78,6 +78,7 @@ class UserProfile(BaseOrderInfo):
 
 class PropertyRegistrator(models.Model):
     registrator = models.ForeignKey(Registrator, verbose_name=u'Выбрать регистратора')
+    domen = models.CharField(max_length=100, verbose_name=u'Домен')
     login = models.CharField(max_length=100, verbose_name=u'Логин')
     password = models.CharField(max_length=100, verbose_name=u'Пароль')
     profile = models.ForeignKey(UserProfile, verbose_name=u'Выбрать профиль')
