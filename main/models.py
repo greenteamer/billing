@@ -36,6 +36,7 @@ class BaseOrderInfo(models.Model):
     # Контактная информация
     firstName = models.CharField(max_length=100, verbose_name=u'Имя пользователя')
     lastName = models.CharField(max_length=100, verbose_name=u'Фамилия пользователя')
+    birthday = models.DateField(auto_now_add=False, verbose_name=u'День рождения')
     email = models.EmailField(max_length=50, verbose_name=(u'Ваш email'))
     phone = models.CharField(max_length=20, verbose_name=(u'Ваш телефон'))
     city = models.CharField(max_length=50, verbose_name=(u'Город'))
