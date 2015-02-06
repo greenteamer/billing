@@ -1,6 +1,7 @@
 #coding: utf-8
 from django.contrib import admin
 from main.models import *
+from main.forms import *
 
 class PageAdmin(admin.ModelAdmin):
     model = Pages
@@ -10,7 +11,9 @@ class RegistratorAdmin(admin.StackedInline):
     model = PropertyRegistrator
 
 class UserProfileAdmin(admin.ModelAdmin):
+    form = UserProfileForm
     inlines = [RegistratorAdmin]
+    search_fields = ['site', 'firstName', 'lastName']
 
 
 admin.site.register(Pages, PageAdmin)
