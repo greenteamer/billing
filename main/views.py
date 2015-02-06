@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext
+import  datetime
 # from project.settings import *
 
 """send mail"""
@@ -26,10 +27,20 @@ def home_view(request, template_name="main/home.html"):
     # users_is_staff = User.objects.filter(is_staff=0)
     # static = STATIC_ROOT
     # path = MEDIA_ROOT
+    today = datetime.date.today()
+
     if request.user.is_superuser:
         profiles = UserProfile.objects.all()
         for profile in profiles:
             profile.registrators = PropertyRegistrator.objects.filter(profile=profile)
+
+            # if profile.birthday.month == today.month:
+            #     if profile.birthday.day == today.day:
+            #         """отправка писем"""
+            #         subject = u'С днем рождения'
+            #         message = u'%s поздравляем с днем рождения' % (profile.firstName)
+            #         send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+
             # profile.registrators = PropertyRegistrator.objects.all()
     else:
         profiles = None
